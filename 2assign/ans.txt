@@ -1,0 +1,29 @@
+C2 
+a.
+Reguli-Falsi: 4 iterations
+Bisect: 18 iterations
+
+b.
+Reguli-Falsi: 2.3757218415e-10
+Bisect: 7.6293945295e-07
+
+C3
+a. 
+[0,1.2] : Reguli-Falsi : 7 iterations
+[0,1.2] : Bisect : 17 iterations
+
+[1,2] : Reguli-Falsi : 91 iterations
+[1,2] : Bisect : 19 iterations
+
+b.
+[0,1.2] : Reguli-Falsi: 3.3439299041e-07
+[0,1.2] : Bisect : 4.8873530132e-06
+
+[1,2] : Reguli-Falsi : 8.7764183587e-07
+[1,2] : Bisect : 4.9236944029e-06
+
+c.
+No, Reguli-Falsi is not always better than the bisection method. Although, RF resulted in smaller residual value than bisect,
+in the last test with interval [1,2], RF used almost 5x more iterations than bisect, and both approximated the same root with
+very small residual. Therefore RF required more computations than the bisect, saying bisect may be more benefitial than
+RF where intervals are larger.
