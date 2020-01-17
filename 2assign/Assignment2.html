@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="Author" Content="anderson">
+	<TITLE>Assignment 2: Math 151A  Winter 2018</TITLE>
+<style type="text/css">
+<!--
+.break {page-break-before: always;}
+.fragment {font-family: monospace, fixed; font-size: 105%;}
+pre.fragment {
+	border: 1px solid #CCCCCC;
+	background-color: #f5f5f5;
+	padding: 4px 6px;
+	margin: 4px 8px 4px 2px;
+	overflow: auto;
+	word-wrap: break-word;
+	font-size:  9pt;
+	line-height: 125%;
+}
+pre.fragment1 {	border: 1px solid #CCCCCC;
+	background-color: #f5f5f5;
+	padding: 4px 6px;
+	margin: 4px 8px 4px 2px;
+	overflow: auto;
+	word-wrap: break-word;
+	font-size:  9pt;
+	line-height: 125%;
+}
+pre.fragment2 {	border: 1px solid #CCCCCC;
+	background-color: #f5f5f5;
+	padding: 4px 6px;
+	margin: 4px 8px 4px 2px;
+	overflow: auto;
+	word-wrap: break-word;
+	font-size:  9pt;
+	line-height: 125%;
+}
+-->
+</style>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/javascript" src="../../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</HEAD>
+<BODY>
+$\def\dfrac#1#2{{\displaystyle {#1 \over #2}}}$
+<H1>Math 151A: Assignment 2 </H1>
+<I>Assigned Monday Jan. 12, 2018, due Friday Jan. 19, 2018</I>
+<hr>
+
+<h3>Theory Problems </h3>
+<strong>[T1]</strong> Let \(f\) be a continuous function and \([a_0, \, b_0]\) be an initial interval such that \(f(a_0)*f(b_0) &lt; 0 \) . For a given \( \epsilon &gt; 0 \) derive a formula in terms of  \( \epsilon \) and \( b_0 - a_0 \) that gives the number of bisection steps, \(k \), required to ensure that \( | x^{\, \ast} - x_k | &lt; \epsilon \) where \( x^{\, \ast}\) is a root of \(f\) in  \([a_0 , \, b_0 ]\) and \( x_k = \dfrac{a_k + b_k}{2} \) with \(a_k\) and \( b_k \) the endpoints of the interval at the \(kth\) bisection step. <br />
+  <br />
+  <strong>[T2]</strong> Use the formula you derived in<strong> [T1]</strong> to determine the smallest number of bisection steps that are required to obtain an approximation to a  root of \( f(x) = x^3 - x - 1 \) lying in the interval [1,2] with a maximal error of \( 10^{-4} \). <br />
+  <br />
+  <strong>[T3]</strong> For the  implementation of the bisection method given in <a href="http://www.math.ucla.edu/~anderson/151A_2018/Assign2/bisect.m">bisect.m</a>, if the initial interval is chosen so that  \(f(a_0)*f(b_0) &gt; 0 \) will the root approximations computed (the values of &quot;c&quot;) converge? 
+  (Assume <code>maximalIterations</code> = \( \infty \)). Explain.
+
+
+  <h3>Computational Problems</h3>
+  <P>A common activity of a numerical analyst is to be responsible for learning about new computational techniques
+and implementing them for comparison purposes. Typically, this involves understanding the concept behind the new
+technique and then taking an existing program and modifying it to incorporate the new technique.</P>
+<P>The purpose of this assignment is to have you follow this process and implement an &quot;improved&quot; variant
+of the bisection method called Reguli-Falsi (&quot;False Position&quot;).</P>
+<P>You will be modifying a script that implements the bisection method given in <A HREF="http://www.math.ucla.edu/~anderson/151A_2018/Assign2/bisect.m">bisect.m</A>.</P>
+<h4><em>Reguli-Falsi Method for Root Finding</em></h4>
+<P>Consider the problem of finding a root \( x^{\ast} \)  for a continuous function \(f(x)\). The Reguli-Falsi method is a variant of the bisection
+method in which the approximate root at the \(k\)th step, \(x_k\), is taken to be the zero of the line through \((a_k, f(a_k))\) and  \((b_k, f(b_k))\) rather than the midpoint of the interval
+    \([a_k , \, b_k ]\). Then, just as in the bisection method, one determines which interval \([a_k , \, x_k ]\) or \([x_k , \, b_k ]\) that contains the root and uses this new interval as the starting point
+for the next iteration. A bound for the error at the \(k\)th step is  \(\dfrac{(b_k - a_k)}{2} \).</P>
+ 
+<strong>[C1]</strong> Create a copy of the m-file <a href="http://www.math.ucla.edu/~anderson/151A_2018/Assign2/bisect.m">bisect.m</a> and rename it <strong>falsep.m</strong>. Implement Reguli-Falsi by appropriately modifying the file falsep.m.  <br />
+	  <br />
+      <strong>[C2]</strong> Compare the Reguli-Falsi method to the bisection method by using both to find the root of (x-1)*(x-2)*(x-3)
+	with a starting interval of [1.75, 2.95]. Stop the iteration when the error bound for the root is 10<SUP>-6</SUP>.
+	<OL Type="a" STYLE="List-Style-Type : Lower-Alpha">
+		<LI>How many iterations does each take?
+		<LI>What is the value of the residual when the iteration terminates?
+	      <br />
+	      <br />
+</OL>
+<strong>[C3]</strong> Repeat a comparison on the function x<SUP>6</SUP> - x - 1 using an initial interval of both [1.0, 1.2] and
+	[1.0, 2.0]. Stop the iteration when the error bound for the root is 10<SUP>-6</SUP>.
+	<OL Type="a" STYLE="List-Style-Type : Lower-Alpha">
+		<LI>How many iterations does each take?
+		<LI>What is the value of the residual when the iteration terminates?
+		<LI>Is Reguli-Falsi always better than the bisection method?
+	      <br />
+</OL>
+ 
+
+    <br />
+    <hr />
+<br />
+<h3>What You Should Turn In</h3>
+<h4><strong>In class</strong></h4>
+<UL>
+	<LI>The answers to the theoretical problems, <strong>[T1]-[T3]</strong>,  in class on Friday, January 19th. <br />
+  
+</UL> 
+
+<h4>Upload to CCLE</h4>
+<UL>
+  <LI>A copy of your m-file falsep.m that implements the Reguli-Falsi method..<br />
+    <br />
+  <LI>In a<strong> plain text file</strong>, your answers to the questions concerning the comparisons done in computational problems<strong> [C2]</strong> and <strong>[C3]</strong>; i.e. record
+	and turn in the number of iterates, the size of the residual for each comparison, and for <strong>[C3], </strong>your conclusion about
+	the relative merits of the Reguli-Falsi method.
+</UL>
+
+</BODY>
+
+</HTML>

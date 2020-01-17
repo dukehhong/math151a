@@ -53,7 +53,6 @@ if(abs(fb) < residualEps)
 end 
 
 % Check if root exists within interval
-
 if( (fa*fb) > 0)
   return
 end

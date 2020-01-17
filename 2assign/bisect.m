@@ -20,7 +20,7 @@
 % Version 1/10/2018 
 % Math 151A 
 
-fstring  = '(x^6)-(x)-1';     % target function specified by
+fstring  = '(x^3)-(x)-1';     % target function specified by
                                     % a string
                                     
 maximalIterations = 1000;           % Maximal number of iterations
