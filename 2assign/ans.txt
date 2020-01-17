@@ -24,4 +24,4 @@ For interval [1,2] : Bisect, Residual=4.9236944029e-06
 No, Reguli-Falsi is not always better than the bisection method. Although, RF resulted in smaller residual value than bisect,
 in the last test with interval [1,2], RF used almost 5x more iterations than bisect, and both approximated the same root with
 very small residual. Therefore RF required more computations than the bisect, saying bisect may be more benefitial than
-RF where intervals are larger.
+RF when dealing with larger intervals or if the intial points are far from a solution.
