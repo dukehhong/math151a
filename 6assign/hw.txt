@@ -1,0 +1,26 @@
+[C2]
+Target function : f(x) =  (x^7)-(2*x) 
+Error of interpolant of degree 5  : 1.0752000000e-01 
+Error of interpolant of degree 10  : 2.1982415888e-14 
+Error of interpolant of degree 20  : 1.7533641206e-11 
+
+[C3]
+For n = 10, taking the derivative 10 times of (x^7)-(2*x), f^(10)(x) = 0 for all x. By Lemma 6.12, this implies that
+the max error of f(x) and p(x) <= 0 for n=10, meaning f(x) and p(x) should be perfectly aligned in the interval [0,1].
+
+It is the same case for n = 20.
+
+However, this disagrees with our computer computed output; By running the algorithm we get errors of 2.1982415888e-14 and 1.7533641206e-11
+for n = 10, n = 20 respectively. This is probably due to round-off errors when computing the interpolation coefficients.
+
+[C4]
+Target function : f(x) =  sin(x)
+Error of interpolant of degree 10  : 9.4480412383e-10 
+Error of interpolant of degree 20  : 5.1960657999e-12 
+Error of interpolant of degree 30  : 2.0106525778e-08 
+
+[C5]
+Target function : f(x) =  sin(x) + (0.001)*(sin(100*x)) 
+Error of interpolant of degree 10  : 3.6102754823e-01 
+Error of interpolant of degree 20  : 3.7868405176e-02 
+Error of interpolant of degree 30  : 4.1147801736e+05 
