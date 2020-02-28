@@ -1,0 +1,5 @@
+We can see that the estimated convergence rates of centered difference is around 2 in the first few iterations.
+This agrees with the fact that the order of centered difference is 2. However as more iterations goes on, 
+the estimated order and error start to tend to 0. This is due to catastrophic cancellation and the limitations 
+of floats; to figure out the error, we subtract the actual and estimated value which leads to catastrophic cancellation when 
+both values are small.
